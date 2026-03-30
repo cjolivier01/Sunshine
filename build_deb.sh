@@ -1,4 +1,4 @@
-#!/bin/bah
+#!/bin/bash
 set -e
 cmake -B build -G Ninja -S . -DBUILD_DOCS=OFF
 ninja -C build

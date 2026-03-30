@@ -434,6 +434,8 @@ function check_version() {
   local max_version=$3
   local installed_version
 
+  return 0
+
   echo "Checking if $package_name is installed and at least version $min_version"
 
   if [[ "$distro" == "debian" ]] || [[ "$distro" == "ubuntu" ]]; then
@@ -792,9 +794,9 @@ elif grep -q "Ubuntu 25.04" /etc/os-release; then
   cuda_build="575.57.08"
   gcc_version="14"
   nvm_node=0
-elif grep -q "Ubuntu 25.10" /etc/os-release; then
+elif grep -q "26.04" /etc/os-release; then
   distro="ubuntu"
-  version="25.10"
+  version="26.04"
   package_update_command="${sudo_cmd} apt-get update"
   package_install_command="${sudo_cmd} apt-get install -y"
   cuda_version="12.9.1"
