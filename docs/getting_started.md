@@ -461,6 +461,30 @@ systemctl --user --now enable app-dev.lizardbyte.app.Sunshine
 > The service has been renamed to "app-dev.lizardbyte.app.Sunshine" in order to increase compatibility with
 > XDG Desktop Portal, but it is also aliased to "sunshine.service" for convenience.
 
+#### Host setup helper (Deb/RPM)
+
+Deb and RPM packages include a helper script that can configure the user service and set a capture backend:
+
+```bash
+/usr/share/sunshine/tools/configure-sunshine-host.sh
+```
+
+Examples:
+
+```bash
+# Local machine (default capture backend: kms)
+/usr/share/sunshine/tools/configure-sunshine-host.sh
+
+# Remote machine over SSH
+/usr/share/sunshine/tools/configure-sunshine-host.sh --host user@hostname
+
+# Override capture backend
+/usr/share/sunshine/tools/configure-sunshine-host.sh --host user@hostname --capture x11
+```
+
+> [!NOTE]
+> The helper relies on `systemctl --user`, so a user manager and graphical session must be available on the target host.
+
 ### macOS
 The first time you start Sunshine, you will be asked to grant access to screen recording and your microphone.
 

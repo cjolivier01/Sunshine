@@ -52,3 +52,7 @@ if [ ! -x "$(command -v rpm-ostree)" ]; then
 else
   echo "rpm-ostree environment detected, skipping post install steps. Restart to apply the changes."
 fi
+
+if [ -x "/usr/share/sunshine/tools/configure-sunshine-host.sh" ] ; then
+  echo "Tip: run /usr/share/sunshine/tools/configure-sunshine-host.sh to configure a user-level Sunshine service."
+fi
