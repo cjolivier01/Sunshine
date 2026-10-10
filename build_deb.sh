@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
-cmake -B build -G Ninja -S . -DBUILD_DOCS=OFF
+cmake --fresh -B build -G Ninja -S . -DBUILD_DOCS=OFF
 ninja -C build
 cpack -G DEB --config ./build/CPackConfig.cmake
 echo "Going to install the new Sunshine DEB file..."
-sudo apt install --reinstall ./build/cpack_artifacts/Sunshine.deb
+sudo apt install -y --reinstall ./build/cpack_artifacts/Sunshine.deb
 echo "Done."
